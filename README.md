@@ -1,3 +1,32 @@
+# Week 4
+
+In this week's sessions, the website from Week 2 will be used as the basis for the exercises.  The website will be refactored a bit to use a common layout component (using Astro specific tags).
+
+A backend server will be added as well using express.js.
+
+Further comments to follow.
+
+1. When refactoring using the Astro tags, we included the following at the top of each of the pages:
+```
+---
+import Layout from '../layout/common.astro'
+---
+```
+The "Layout" class can be anything you want - this class is then used to encompass the contents of the page - we're passing the title as an Astro.prop.
+
+```
+<Layout title="Blog">
+...
+</Layout>
+```
+
+
+
+
+
+# ======================================================
+# Leaving this stuff here for further reference....
+
 # Astro Starter Kit: Minimal
 
 ```
