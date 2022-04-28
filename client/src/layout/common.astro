@@ -1,5 +1,13 @@
 ---
 const {title} = Astro.props;
+
+const url = new URL(Astro.request.url).pathname;
+
+// Returns the title bolded for the current page.
+const boldTitle = (page: string, url: string): string => {
+	return page === url ? 'font-bold text-gray-800 hover:text-gray-600' : 'font-medium text-gray-500 hover:text-gray-900';
+}
+
 ---
 
 <html lang="en">
@@ -15,10 +23,10 @@ const {title} = Astro.props;
 		<div class="py-8">
 	
 			<nav class="flex justify-center space-x-10 pb-10">
-				<a href="/" class="font-medium text-gray-500 hover:text-gray-900">Home</a>
-				<a href="/pricing" class="font-medium text-gray-500 hover:text-gray-900">Pricing</a>
-				<a href="/blog" class="font-medium text-gray-500 hover:text-gray-900">Blog</a>
-				<a href="/login" class="font-medium text-gray-500 hover:text-gray-900">Login</a>
+				<a href = "/" class={boldTitle("/", url)}>Home</a>
+				<a href="/pricing" class={boldTitle("/pricing", url)}>Pricing</a>
+				<a href="/blog" class={boldTitle("/blog", url)}>Blog</a>
+				<a href="/login" class={boldTitle("/login", url)}>Login</a>
 				<a href="/signup" class="font-medium text-white hover:bg-blue-600 bg-blue-500 px-3 py-2 -mt-2 rounded-lg">Sign
 					up</a>
 			</nav>
@@ -31,16 +39,16 @@ const {title} = Astro.props;
 	      <slot />
 	    </div>
 
-			<footer class="mt-20 pt-12 border-t-2 border-gray-300">
-				<nav class="flex justify-center pb-10 space-x-10">
-					<a href="/" class="font-medium text-gray-500 hover:text-gray-900">Home</a>
-					<a href="/pricing" class="font-medium text-gray-500 hover:text-gray-900">Pricing</a>
-					<a href="/blog" class="font-medium text-gray-500 hover:text-gray-900">Blog</a>
-				</nav>
-				<p class="text-center text-gray-400">
-					&copy; 2022 Great Tool. All rights reserved.
-				</p>
-			</footer>
+		<footer class="mt-20 pt-12 border-t-2 border-gray-300">
+			<nav class="flex justify-center pb-10 space-x-10">
+				<a href="/" class="font-medium text-gray-500 hover:text-gray-900">Home</a>
+				<a href="/pricing" class="font-medium text-gray-500 hover:text-gray-900">Pricing</a>
+				<a href="/blog" class="font-medium text-gray-500 hover:text-gray-900">Blog</a>
+			</nav>
+			<p class="text-center text-gray-400">
+				&copy; 2022 Great Tool. All rights reserved.
+			</p>
+		</footer>
 	  </div>
 	</body>
 </html>
