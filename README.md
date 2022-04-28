@@ -20,9 +20,13 @@ The "Layout" class can be anything you want - this class is then used to encompa
 </Layout>
 ```
 
-
-
-
+2. To deploy the client on Netlify, I had to setup the deploy settings as follows:
+    - Base directory: client
+    - Build command: npm run build
+    - Publish directory: client/dist
+  
+The key was the publish directory, since Astro puts the results of the build in a 'dist' folder.
+Netlify normally will recognize an Astro project, but because the Astro stuff is in a sub-folder, it is confused.  
 
 # ======================================================
 # Leaving this stuff here for further reference....
