@@ -24,9 +24,11 @@ The "Layout" class can be anything you want - this class is then used to encompa
     - Base directory: client
     - Build command: npm run build
     - Publish directory: client/dist
-  
+
 The key was the publish directory, since Astro puts the results of the build in a 'dist' folder.
 Netlify normally will recognize an Astro project, but because the Astro stuff is in a sub-folder, it is confused.  
+
+3.  At some point we added the tailwindcss.cdn in a script tag - but we really didn't need this since we had installed it as a dependency anyway.  The CDN was also causing a number of us to see a CORS issue (in the developer's console) - this can be mitigated using 'defer' in the script tag.  Removing the script usage fixes the problem anyway....
 
 # ======================================================
 # Leaving this stuff here for further reference....
@@ -74,4 +76,3 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://github.com/withastro/astro) or jump into our [Discord server](https://astro.build/chat).
-
