@@ -30,6 +30,11 @@ Netlify normally will recognize an Astro project, but because the Astro stuff is
 
 3.  At some point we added the tailwindcss.cdn in a script tag - but we really didn't need this since we had installed it as a dependency anyway.  The CDN was also causing a number of us to see a CORS issue (in the developer's console) - this can be mitigated using 'defer' in the script tag.  Removing the script usage fixes the problem anyway....
 
+4. Reminder: we added Tailwind to Astro in Week2: 
+```
+npx astro add tailwind
+```
+
 # ======================================================
 # Leaving this stuff here for further reference....
 
